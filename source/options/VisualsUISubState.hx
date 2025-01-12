@@ -102,7 +102,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		super();
 	}
 
-	#if !mobile
+	#if mobile
 	function onChangeFPSCounter()
 	{
 		if(Main.fpsVar != null)
