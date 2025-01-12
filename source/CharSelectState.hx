@@ -80,6 +80,10 @@ class CharSelectState extends MusicBeatState{
         charSelect.offset.x -= 150;
         add(charSelect);
         changeSelection();
+	    #if android
+		addVirtualPad(LEFT_RIGHT, A);
+		addPadCamera();
+		#end
         super.create();
     }
 
