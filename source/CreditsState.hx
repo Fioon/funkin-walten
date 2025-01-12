@@ -193,6 +193,12 @@ class CreditsState extends MusicBeatState
 		bg.color = getCurrentBGColor();
 		intendedColor = bg.color;
 		changeSelection();
+
+		#if android
+                addVirtualPad(UP_DOWN, A_B_C);
+                addPadCamera();
+                #end
+				
 		super.create();
 	}
 
@@ -239,7 +245,7 @@ class CreditsState extends MusicBeatState
 				}
 			}
 			
-			if(FlxG.keys.justPressed.CONTROL)
+			if(FlxG.keys.justPressed.CONTROL #if android || _virtualpad.buttonC.justPressed #end)
 			{
 				CoolUtil.browserLoad('https://twitter.com/TheFunkinFiles');
 			}
