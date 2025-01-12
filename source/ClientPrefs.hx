@@ -32,6 +32,8 @@ class ClientPrefs {
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = true;
+	public static var hitboxmode:String = 'Classic';  //starting new way to change between hitboxes yay
+        public static var hitboxalpha:Float = 0.2; //someone request this lol
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -129,6 +131,8 @@ class ClientPrefs {
 		FlxG.save.data.safeFrames = safeFrames;
 		FlxG.save.data.gameplaySettings = gameplaySettings;
 		FlxG.save.data.controllerMode = controllerMode;
+		FlxG.save.data.hitboxmode = hitboxmode;
+                FlxG.save.data.hitboxalpha = hitboxalpha;
 	
 		FlxG.save.flush();
 
@@ -241,6 +245,12 @@ class ClientPrefs {
 		if(FlxG.save.data.controllerMode != null) {
 			controllerMode = FlxG.save.data.controllerMode;
 		}
+		if(FlxG.save.data.hitboxmode != null) {
+                    hitboxmode = FlxG.save.data.hitboxmode;
+                }
+                if(FlxG.save.data.hitboxalpha != null) {
+                    hitboxalpha = FlxG.save.data.hitboxalpha;
+	        }
 		if(FlxG.save.data.gameplaySettings != null)
 		{
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;
