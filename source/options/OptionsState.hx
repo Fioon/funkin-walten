@@ -35,6 +35,9 @@ class OptionsState extends MusicBeatState
 	public static var menuBG:FlxSprite;
 
 	function openSelectedSubstate(label:String) {
+		#if android
+		removeVirtualPad();
+		#end
 		switch(label) {
 			case 'Note Colors':
 				openSubState(new options.NotesSubState());
@@ -87,12 +90,18 @@ class OptionsState extends MusicBeatState
 
 		changeSelection();
 		ClientPrefs.saveSettings();
-
+		
+                #if android
+		addVirtualPad(UP_DOWN, A_B_X_Y);
+		#end
+			
 		super.create();
 	}
 
 	override function closeSubState() {
 		super.closeSubState();
+		removeVirtualPad();
+		addVirtualPad(UP_DOWN, A_B_E);
 		ClientPrefs.saveSettings();
 	}
 
@@ -106,13 +115,19 @@ class OptionsState extends MusicBeatState
 			changeSelection(1);
 		}
 
-		if (controls.BACK) {
+		if (controls.BACK || FlxG.android.justReleased.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
 		if (controls.ACCEPT) {
 			openSelectedSubstate(options[curSelected]);
+		}
+		if (_virtualpad.buttonX.justPressed){
+			MusicBeatState.switchState(new android.AndroidControlsMenu());
+		}
+		if (_virtualpad.buttonY.justPressed){
+			MusicBeatState.switchState(new options.HitboxSettingsSubState());
 		}
 	}
 	
