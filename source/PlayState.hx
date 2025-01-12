@@ -58,7 +58,7 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import flash.system.System;
-
+import VideoHandler as MP4Handler;
 #if sys
 import sys.FileSystem;
 #end
@@ -1567,6 +1567,11 @@ var repositionShit = 350;
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
+	        #if android
+		addAndroidControls();
+		androidc.visible = false;
+		#end
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -2620,7 +2625,7 @@ var repositionShit = 350;
 		char.y += char.positionArray[1];
 	}
 
-	public function startVideo(name:String):Void {
+        public function startVideo(name:String):Void {
 		#if VIDEOS_ALLOWED
 		var foundFile:Bool = false;
 		var fileName:String = #if MODS_ALLOWED Paths.modFolders('videos/' + name + '.' + Paths.VIDEO_EXT); #else ''; #end
@@ -2647,14 +2652,13 @@ var repositionShit = 350;
 			bg.scrollFactor.set();
 			bg.cameras = [camHUD];
 			add(bg);
-			
 
-			(new FlxVideo(fileName)).finishCallback = function() {
+			var video:MP4Handler = new MP4Handler();
+			video.playVideo(fileName);
+			video.finishCallback = function() {
 				remove(bg);
 				startAndEnd();
 			}
-			
-			
 			return;
 		}
 		else
@@ -2664,7 +2668,7 @@ var repositionShit = 350;
 		}
 		#end
 		startAndEnd();
-	}
+		}
 
 	function startAndEnd()
 	{
@@ -2818,6 +2822,9 @@ var repositionShit = 350;
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
 		if (ret != FunkinLua.Function_Stop) {
+			#if android
+			androidc.visible = true;
+			#end
 			var enemyAlpha:Float = 1;
 			var playerAlpha:Float = 1;
 			if (SONG.song.toLowerCase() == 'rendezvous') {
@@ -2861,6 +2868,7 @@ var repositionShit = 350;
 				Conductor.songPosition -= Conductor.crochet ;
 				swagCounter = 3;
 			}
+			
 			startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
 			{
 				if (tmr.loopsLeft % gfSpeed == 0 && !gf.stunned && gf.animation.curAnim.name != null && !gf.animation.curAnim.name.startsWith("sing"))
@@ -3686,7 +3694,7 @@ if (SONG.song.toLowerCase() == 'marketable plushie') targetAlpha = 0;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
-		if (controls.PAUSE && startedCountdown && canPause)
+		if (FlxG.android.justReleased.BACK && startedCountdown && canPause)
 		{
 			var ret:Dynamic = callOnLuas('onPause', []);
 			if(ret != FunkinLua.Function_Stop) {
@@ -4678,6 +4686,9 @@ function rosiescreen1(chance:Float, duration:Float) {
 
 		deathCounter = 0;
 		seenCutscene = false;
+		#if android
+		androidc.visible = false;
+		#end
 
 		#if ACHIEVEMENTS_ALLOWED
 		if(achievementObj != null) {
