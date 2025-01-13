@@ -1,4 +1,5 @@
 package;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
@@ -41,7 +42,7 @@ class Cache extends MusicBeatState
 
 	override function create()
 	{
-		SUtil.applicationAlert('W','Cache');
+		Application.current.window.alert('', 'debug01');
 			
 		FlxG.mouse.visible = false;
 
@@ -71,7 +72,7 @@ class Cache extends MusicBeatState
 		shitz.scrollFactor.set();
 		shitz.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		//add(shitz);
-		SUtil.applicationAlert('W2','Cache2');
+		Application.current.window.alert('', 'debug02');
 
 		#if cpp
 		for (i in FileSystem.readDirectory(SUtil.getPath() + FileSystem.absolutePath("assets/shared/images/characterload")))
@@ -97,7 +98,7 @@ class Cache extends MusicBeatState
 			FlxTween.tween(tipsBG, {alpha: 1}, 0.5, {ease: FlxEase.linear});
 				
 			});
-	        SUtil.applicationAlert('W3','Cache3');
+	        Application.current.window.alert('', 'debug03');
 		
 	}
 
@@ -108,7 +109,7 @@ class Cache extends MusicBeatState
 
 	function cache()
 	{
-		SUtil.applicationAlert('W4','Cache4');
+		Application.current.window.alert('', 'debug04');
 		#if !linux
 			//var sound1:FlxSound;
 			//sound1 = new FlxSound().loadEmbedded(Paths.voices('fresh'));
