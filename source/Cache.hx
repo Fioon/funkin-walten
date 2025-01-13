@@ -125,7 +125,7 @@ class Cache extends MusicBeatState
 		for (i in images)
 		{
 			var replaced = i.replace(".png","");
-			var data:BitmapData = BitmapData.fromFile(SUtil.getPath() + "assets/shared/images/characters/" + i);
+			var data:BitmapData = BitmapData.fromFile("assets/shared/images/characters/" + i);
 			var graph = FlxGraphic.fromBitmapData(data);
 			graph.persist = true;
 			graph.destroyOnNoUse = false;
@@ -144,6 +144,7 @@ class Cache extends MusicBeatState
 
 
 		#end
+  Application.current.window.alert('', 'debug05');
 		FlxG.switchState(new TitleState());
 	}
 
