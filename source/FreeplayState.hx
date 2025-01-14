@@ -67,6 +67,7 @@ class FreeplayState extends MusicBeatState
 	var bg14:FlxSprite;
 	var bg15:FlxSprite;
 	var bg16:FlxSprite;
+	var bg17:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 	
@@ -227,7 +228,11 @@ class FreeplayState extends MusicBeatState
 		bg15.screenCenter();
 		bg15.alpha = 0;
 
-
+                bg16 = new FlxSprite().loadGraphic(Paths.image('songbgs/Dark'));
+		bg16.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bg16);
+		bg16.screenCenter();
+		bg16.alpha = 0;
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -584,6 +589,8 @@ class FreeplayState extends MusicBeatState
 			curDifficulty = 3;
 			if (curSelected == 14 && curDifficulty > 3)
 			curDifficulty = 3;// remixes
+		        if (curSelected > 14)
+			curDifficulty = 1;
 			
 			
 						
@@ -632,59 +639,69 @@ class FreeplayState extends MusicBeatState
 			FlxTween.tween(bg4, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg5, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = true;
-		 case 4:
+        case 4:
 			 FlxTween.tween(bg4, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg5, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg6, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 5:
+	case 5:
 			 FlxTween.tween(bg5, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg6, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg7, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 6:
+	case 6:
 			 FlxTween.tween(bg6, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg7, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg8, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 7:
+	case 7:
 			  FlxTween.tween(bg7, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg8, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg9, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 8:
+	case 8:
 			  FlxTween.tween(bg8, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg9, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg10, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 9:
+	case 9:
 			  FlxTween.tween(bg9, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg10, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg11, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 10:
+	case 10:
 			 FlxTween.tween(bg10, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg11, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg12, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 11:
+	case 11:
 			 	 FlxTween.tween(bg11, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg12, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg13, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 12:
+	case 12:
 			  FlxTween.tween(bg12, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg13, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg14, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 13:
+	case 13:
 			   FlxTween.tween(bg13, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg14, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg15, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
-		 case 14:
+	case 14:
 			  FlxTween.tween(bg14, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg15, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
+			FlxTween.tween(bg1, {alpha: 0}, 0.3, {ease: FlxEase.linear});
+		charIcon.visible = false;
+        case 15:
+			  FlxTween.tween(bg15, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
+			FlxTween.tween(bg16, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
+			FlxTween.tween(bg1, {alpha: 0}, 0.3, {ease: FlxEase.linear});
+		charIcon.visible = false;
+         default:
+			  FlxTween.tween(bg14, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
+			FlxTween.tween(bg16, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg1, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
         }
