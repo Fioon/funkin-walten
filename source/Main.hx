@@ -71,7 +71,7 @@ class Main extends Sprite
 		SUtil.doTheCheck();
 
 		#if !debug
-		initialState = Cache;
+		initialState = TitleState;
 		#end
 	
 		ClientPrefs.loadDefaultKeys();
