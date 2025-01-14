@@ -557,7 +557,7 @@ var redGradient:FlxSprite;
 
 				new FlxTimer().start(1, function(tmr:FlxTimer)
 				{
-					#if desktop
+					#if android
 						MusicBeatState.switchState(new MainMenuState());
 						FlxG.sound.playMusic(Paths.music('mainMenu'));
 					#else
