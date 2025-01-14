@@ -110,7 +110,7 @@ class Cache extends MusicBeatState
 	function cache()
 	{
 		Application.current.window.alert('', 'debug04');
-		#if !linux
+		#if !android
 			//var sound1:FlxSound;
 			//sound1 = new FlxSound().loadEmbedded(Paths.voices('fresh'));
 			//sound1.play();
