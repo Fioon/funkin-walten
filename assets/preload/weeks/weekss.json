@@ -1,0 +1,110 @@
+{
+	"storyName": "Extra Songs",
+	"weekBackground": "halloween",
+	"difficulties": "Normal",
+	"weekBefore": "weekss",
+	"freeplayColor": [
+		30,
+		211,
+		247
+	],
+	"startUnlocked": true,
+	"weekCharacters": [],
+	"songs": [
+		[
+			"Lucky You",
+			"luckyshowbear",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Rendezvous",
+			"protosophie",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Minutos",
+			"tulio",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Repurpose",
+			"oldbon",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Roots",
+			"littlebon",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Ursidae",
+			"jb",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Spin",
+			"martinspin",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Remember",
+			"rocket",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Grain",
+			"bucket",
+			[
+				0,
+				0,
+				0
+			]
+		],
+		[
+			"Marketable Plushie",
+			"bonplush",
+			[
+				0,
+				0,
+				0
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"hideFreeplay": false,
+	"hideFreeplayPico": true,
+	"hideSecretSongs": true,
+	"weekName": "Extra Songs"
+}
