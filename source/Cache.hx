@@ -75,14 +75,14 @@ class Cache extends MusicBeatState
 		Application.current.window.alert('', 'debug02');
 
 		#if cpp
-		for (i in FileSystem.readDirectory(SUtil.getPath() + FileSystem.absolutePath("assets/shared/images/characterload")))
+		for (i in FileSystem.readDirectory(FileSystem.absolutePath(SUtil.getPath() + "assets/shared/images/characterload")))
 		{
 			if (!i.endsWith(".png"))
 				continue;
 			images.push(i);
 		}
 
-		for (i in FileSystem.readDirectory(SUtil.getPath() + FileSystem.absolutePath("assets/songs")))
+		for (i in FileSystem.readDirectory(FileSystem.absolutePath(SUtil.getPath() + "assets/songs")))
 		{
 			music.push(i);
 		}
@@ -110,7 +110,7 @@ class Cache extends MusicBeatState
 	function cache()
 	{
 		Application.current.window.alert('', 'debug04');
-		#if !android
+		#if android
 			//var sound1:FlxSound;
 			//sound1 = new FlxSound().loadEmbedded(Paths.voices('fresh'));
 			//sound1.play();
@@ -125,7 +125,7 @@ class Cache extends MusicBeatState
 		for (i in images)
 		{
 			var replaced = i.replace(".png","");
-			var data:BitmapData = BitmapData.fromFile("assets/shared/images/characters/" + i);
+			var data:BitmapData = BitmapData.fromFile(SUtil.getPath() + "assets/shared/images/characters/" + i);
 			var graph = FlxGraphic.fromBitmapData(data);
 			graph.persist = true;
 			graph.destroyOnNoUse = false;
