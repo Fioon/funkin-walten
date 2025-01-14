@@ -178,6 +178,9 @@ class GalleryState extends MusicBeatState
 
         FlxG.sound.playMusic(Paths.music('gallery'));
         // Conductor.changeBPM(71);
+	#if android
+	addVirtualPad(LEFT_RIGHT, A_B);
+	#end
     }
 
     override function update(elapsed:Float)
