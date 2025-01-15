@@ -589,8 +589,10 @@ class FreeplayState extends MusicBeatState
 			curDifficulty = 3;
 			if (curSelected == 14 && curDifficulty > 3)
 			curDifficulty = 3;// remixes
-		        //if (curSelected > 14)
-			//curDifficulty = 1;
+		        if (curSelected > 14 && curDifficulty < 3)
+			curDifficulty = 1;
+			if (curSelected > 14 && curDifficulty > 3)
+			curDifficulty = 1;
 			
 			
 						
