@@ -67,7 +67,7 @@ class FreeplayState extends MusicBeatState
 	var bg14:FlxSprite;
 	var bg15:FlxSprite;
 	var bg16:FlxSprite;
-	var bg17:FlxSprite;
+	//var bg17:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 	
@@ -577,7 +577,7 @@ class FreeplayState extends MusicBeatState
 			
 			if (curDifficulty > 2)
 			curDifficulty = 0;
-		if (curDifficulty < 0)
+		        if (curDifficulty < 0)
 			curDifficulty = 2;
 			
 			// CHANGE THIS EVERY TIME A NEW SONG IS ADDED!!!
@@ -589,8 +589,8 @@ class FreeplayState extends MusicBeatState
 			curDifficulty = 3;
 			if (curSelected == 14 && curDifficulty > 3)
 			curDifficulty = 3;// remixes
-		        if (curSelected > 14)
-			curDifficulty = 1;
+		        //if (curSelected > 14)
+			//curDifficulty = 1;
 			
 			
 						
@@ -620,7 +620,7 @@ class FreeplayState extends MusicBeatState
 			
 			switch(curSelected){
         case 0:
-			FlxTween.tween(bg15, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
+			FlxTween.tween(bg16, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg1, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg2, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
@@ -692,7 +692,7 @@ class FreeplayState extends MusicBeatState
 	case 14:
 			  FlxTween.tween(bg14, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
 			FlxTween.tween(bg15, {alpha: 1}, 0.3, {ease: FlxEase.linear});	
-			FlxTween.tween(bg1, {alpha: 0}, 0.3, {ease: FlxEase.linear});
+			FlxTween.tween(bg16, {alpha: 0}, 0.3, {ease: FlxEase.linear});
 		charIcon.visible = false;
         case 15:
 			  FlxTween.tween(bg15, {alpha: 0}, 0.3, {ease: FlxEase.linear});	
