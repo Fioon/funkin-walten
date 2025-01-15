@@ -69,7 +69,7 @@ class ResetScoreSubState extends MusicBeatSubstate
 		add(noText);
 		updateOptions();
 		#if android
-		removeVirtualPad();
+		//removeVirtualPad();
 		addVirtualPad(LEFT_RIGHT, A_B);
 		#end
 	}
